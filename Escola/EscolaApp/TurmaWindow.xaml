@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscolaApp"
         mc:Ignorable="d"
-        Title="TurmaWindow" Height="200" Width="300">
+        Title="TurmaWindow" Height="200" Width="400">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Id" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox Name="txtId" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,10,0,0" Text="Curso" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="60,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109"/>
+        <TextBlock HorizontalAlignment="Left" Margin="174,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16"><Run Language="pt-br" Text="Turma"/><LineBreak/><Run Language="pt-br"/></TextBlock>
+        <TextBox Name="txtTurma" HorizontalAlignment="Left" Margin="174,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.386,0.559"/>
+        <TextBlock HorizontalAlignment="Left" Margin="299,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Height="15"><Run Language="pt-br" Text="Ano Letivo"/><LineBreak/><Run Language="pt-br"/></TextBlock>
+        <TextBox Name="txtAno" HorizontalAlignment="Left" Margin="299,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <Button Click="InserirClick" Content="Inserir" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
+        <Button Click="ListarClick" Content="Listar" HorizontalAlignment="Left" Margin="54,53,0,0" VerticalAlignment="Top"/>
+        <Button Click="AtualizarClick" Content="Atualizar" HorizontalAlignment="Left" Margin="91,53,0,0" VerticalAlignment="Top"/>
+        <Button Click="ExcluirClick" Content="Excluir" HorizontalAlignment="Left" Margin="146,53,0,0" VerticalAlignment="Top"/>
+        <ListBox Name="listTurmas" Margin="10,78,15,10"/>
     </Grid>
 </Window>
