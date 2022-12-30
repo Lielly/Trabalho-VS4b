@@ -53,7 +53,7 @@ namespace EscolaApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EscolaApp;component/alunowindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EscolaApp;V1.0.0.0;component/alunowindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AlunoWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
