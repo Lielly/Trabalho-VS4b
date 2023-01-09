@@ -23,5 +23,63 @@ namespace EscolaApp
         {
             InitializeComponent();
         }
+
+        private void InserirClick(object sender, RoutedEventArgs e)
+        {
+            // Novo objeto com os dados da turma que será inserida
+            Turma t = new Turma();
+            t.Id = int.Parse(txtId.Text);
+            t.Curso = txtCurso.Text;
+            t.Descricao = txtTurma.Text;
+            t.AnoLetivo = int.Parse(txtAno.Text);
+            // Inserir a turma na lista de turmas
+            NTurma.Inserir(t);
+            // Lista a turma inserida
+            ListarClick(sender, e);
+        }
+
+        private void ListarClick(object sender, RoutedEventArgs e)
+        {
+            listTurmas.ItemsSource = null;
+            listTurmas.ItemsSource = NTurma.Listar();
+        }
+
+        private void AtualizarClick(object sender, RoutedEventArgs e)
+        {
+            // Novo objeto com os dados da turma que será inserida
+            Turma t = new Turma();
+            t.Id = int.Parse(txtId.Text);
+            t.Curso = txtCurso.Text;
+            t.Descricao = txtTurma.Text;
+            t.AnoLetivo = int.Parse(txtAno.Text);
+            // Inserir a turma na lista de turmas
+            NTurma.Atualizar(t);
+            // Lista as turmas cadastradas
+            ListarClick(sender, e);
+        }
+
+        private void ExcluirClick(object sender, RoutedEventArgs e)
+        {
+            // Novo objeto com os dados da turma que será inserida
+            Turma t = new Turma();
+            t.Id = int.Parse(txtId.Text);
+            // Inserir a turma na lista de turmas
+            NTurma.Excluir(t);
+            // Lista as turmas cadastradas
+            ListarClick(sender, e);
+        }
+
+        private void listAlunos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listAlunos.SelectedItem != null)
+            {
+                Turma obj = (Turma)listAlunos.SelectedItem;
+                txtId.Text = obj.Id.ToString();
+                txtNome.Text = obj.Curso;
+                txtMatricula.Text = obj.Descricao;
+                txtEmail.Text = obj.Email;
+            }
+        }
     }
+}
 }

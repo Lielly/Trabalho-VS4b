@@ -53,8 +53,8 @@ namespace EscolaApp
             t.Descricao = txtTurma.Text;
             t.AnoLetivo = int.Parse(txtAno.Text);
             // Inserir a turma na lista de turmas
-            NTurma.Inserir(t);
-            // Lista a turma inserida
+            NTurma.Atualizar(t);
+            // Lista as turmas cadastradas
             ListarClick(sender, e);
         }
 
@@ -65,7 +65,7 @@ namespace EscolaApp
             t.Id = int.Parse(txtId.Text);
             // Inserir a turma na lista de turmas
             NTurma.Excluir(t);
-            // Lista a turma inserida
+            // Lista as turmas cadastradas
             ListarClick(sender, e);
         }
 
@@ -75,8 +75,8 @@ namespace EscolaApp
             {
                 Turma obj = (Turma)listTurmas.SelectedItem;
                 txtId.Text = obj.Id.ToString();
-                txtCurso.Text = obj;
-                txtTurma.Text = obj;
+                txtCurso.Text = obj.Curso;
+                txtTurma.Text = obj.Descricao;
                 txtAno.Text = obj.AnoLetivo.ToString();
             }
         }

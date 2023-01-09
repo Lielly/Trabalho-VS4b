@@ -8,42 +8,42 @@ using System.Xml.Serialization;
 
 namespace EscolaApp
 {
-    static class NTurma
+    static class NAluno
     {
-        //private Turma[] turmas = new Turma[10];
-        private static List<Turma> turmas = new List<Turma>();
-        public static void Inserir(Turma t)
+        //private Aluno[] alunos = new Aluno[10];
+        private static List<Aluno> alunos = new List<Aluno>();
+        public static void Inserir(Aluno t)
         {
             Abrir();
-            turmas.Add(t);
+            alunos.Add(t);
             Salvar();
         }
-        public static List<Turma> Listar()
+        public static List<Aluno> Listar()
         {
             Abrir();
-            return turmas;
+            return alunos;
         }
-        public static void Atualizar(Turma t)
+        public static void Atualizar(Aluno t)
         {
             Abrir();
             // Percorrer a lista de turma procurando o id informado (t.Id)
-            foreach (Turma obj in turmas)
+            foreach (Aluno obj in alunos)
                 if (obj.Id == t.Id)
                 {
-                    obj.Curso = t.Curso;
-                    obj.Descricao = t.Descricao;
-                    obj.AnoLetivo = t.AnoLetivo;
+                    obj.Nome = t.Nome;
+                    obj.Matricula = t.Matricula;
+                    obj.Email = t.Email;
                 }
             Salvar();
         }
-        public static void Excluir(Turma t)
+        public static void Excluir(Aluno t)
         {
             Abrir();
             // Percorrer a lista de turma procurando o id informado (t.Id)
-            Turma x = null;
-            foreach (Turma obj in turmas)
+            Aluno x = null;
+            foreach (Aluno obj in alunos)
                 if (obj.Id == t.Id) x = obj;
-            if (x != null) turmas.Remove(x);
+            if (x != null) alunos.Remove(x);
             Salvar();
         }
         public static void Abrir()
@@ -51,28 +51,28 @@ namespace EscolaApp
             StreamReader f = null;
             try
             {
-                // Objeto que serializa (transforma) uma lista de turmas em um texto em XML
-                XmlSerializer xml = new XmlSerializer(typeof(List<Turma>));
+                // Objeto que serializa (transforma) uma lista de alunos em um texto em XML
+                XmlSerializer xml = new XmlSerializer(typeof(List<Aluno>));
                 // Objeto que abre um texto em um arquivo
-                f = new StreamReader("./turmas.xml");
+                f = new StreamReader("./alunos.xml");
                 // Chama a operação de desserialização informando a origem do texto XML
-                turmas = (List<Turma>)xml.Deserialize(f);
+                alunos = (List<Aluno>)xml.Deserialize(f);
             }
             catch
             {
-                turmas = new List<Turma>();
+                alunos = new List<Aluno>();
             }
             // Fecha o arquivo
             if (f != null) f.Close();
         }
         public static void Salvar()
         {
-            // Objeto que serializa (transforma) uma lista de turmas em um texto em XML
-            XmlSerializer xml = new XmlSerializer(typeof(List<Turma>));
+            // Objeto que serializa (transforma) uma lista de alunos em um texto em XML
+            XmlSerializer xml = new XmlSerializer(typeof(List<Aluno>));
             // Objeto que grava um texto em um arquivo
-            StreamWriter f = new StreamWriter("./turmas.xml", false);
+            StreamWriter f = new StreamWriter("./alunos.xml", false);
             // Chama a operação de serialização informando o destino do texto XML
-            xml.Serialize(f, turmas);
+            xml.Serialize(f, alunos);
             // Fecha o arquivo
             f.Close();
         }
